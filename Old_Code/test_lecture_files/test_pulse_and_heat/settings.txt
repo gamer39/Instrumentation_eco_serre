@@ -1,0 +1,2 @@
+target temp 24 range 5
+target hum 10 range 5 

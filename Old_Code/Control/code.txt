@@ -1,0 +1,44 @@
+VoletsDomine = False
+ChauffageDomine = True
+HumidLibre = False
+tempsPulse = 60 #choix dans l'interface
+
+#déterminer la vitesse qu'on se rapproche de la consigne
+def Chauffage(onOff, pulse, tempInt, tempExt):
+    if pulse:
+
+    if tempExt < 15:
+        ChauffageDomine
+    else:
+        VoletsDomine
+
+def Volets(onOff):
+
+def Ventilation(onOff):
+
+#temperature à priorité
+def temperature(temp, consigne, rangeTemp):
+    if (temp - rangeTemp) < consigne:
+        if(VoletsDomine):
+            Volets(True)
+            Ventilation(True)
+        elif ChauffageDomine:
+            Chauffage(True)
+        HumidLibre(False)
+    elif (temp + rangeTemp) > consigne:
+        Chauffage(False)
+        HumidLibre(False)
+    else:
+        HumidLibre(True)
+
+def humidite(humid, tempInt, tempExt, consigneHumid, rangeHumid):
+    #controlé par les volets et chauffage
+    if HumidLibre:
+        if (humid - rangeHumid) < consigneHumid:
+            Volets(False)
+            Chauffage(False)
+        elif (humid + rangeHumid) >= consigneHumid:
+            Volets(True)
+            Ventilation(True)
+            if (humid + 0.15 + rangeHumid):
+                Chauffage(True, True, tempInt, tempExt)

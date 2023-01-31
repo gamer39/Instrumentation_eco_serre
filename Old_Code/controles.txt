@@ -1,0 +1,58 @@
+Ce texte contient les différentes consignes de controles pour la serre
+
+Appareil detecté quand quelque chose est connecté
+    une fois connecté, demandé si on veut timer ou asservissement(une fois détecté)
+    rendre les sorties configurables logiciel mais si pas possible gel
+    moteur, pompe, lumière fonctionne selon timer choisi via interface
+        1 signal pour toutes les lumières
+        1 pompe, X valve, ouvrir les valves une après l'autre
+            si pompe allume, 1 valve DOIT etre allumé
+            valves s'ouvrent à l'heure setté 
+        2 volets
+        les 2 moteurs font les 2 sens
+        ajouter un bouton qui override le timer et turn on ou off
+    "sortie X détecte nouvel appareil, sélectionner c'est quoi parmi la liste suivante"
+    
+Température 
+    considéré un range
+    si mesuré < désiré : allumé la chaufrette
+        considérer la pente à laquelle la température augmente
+        arrêter à environ  10% de la consigne ou selon la pente pour que quand la temp va 
+            etre bonne
+    si trop chaud
+        arreter la chaufrette
+    si VRAIMENT trop chaud
+        ouvrir les volets + partir ventilation
+            1 ventilateur tjrs allumé
+            ouvrir l'autre avec les volets si vrm trop chaud
+        si on vient de finir de chauffer, il ne faut pas ouvrir les volets tout de suite
+            parce que la temperature peut encore s'adapter
+            on peut donc considerer la temperature exterieure
+                (ext plus petit que X, chaufrette;sinon volets)
+            rajouter la date comme guideline aussi? ex. peu de chances d'ouvrir les volets
+                en plein mois de decembre
+            il faut prendre aussi en consideration le chauffage fait par le soleil
+ 
+Humidité
+    fonctionne avec juste les volets
+    possible de chauffer pour faire diminuer l'humidité
+        donc humidité est semi controlé avec la temp
+    SEULEMENT SI TROP LOIN, SINON JUSTE LES VOLETS EN ÉTÉ si trop loin du range, envoyer pulse de chauffage (pulse de genre 1 min)
+        trop loin par en haut
+        on fait rien si l'humidité est trop bas 
+            on ferme les volets et on fait rien avec la chauffrette
+    l'humidité devrait augmenté par elle-même
+    si chauffrette deja a on, on fait rien (transforme pas en pulse) puisque ça devrait
+        deja faire descendre l'humidité
+    s'il fait froid et sub humid, chauffé quand même 
+    s'il fait trop chaud et trop humide, on chauffe pas mais les volets vont être ouvert
+        donc l'humidité devrait se réguler
+    
+CO2 -> on fait rien si il faut en rajouter ça coute trop cher
+    alerte si trop haute!            
+        si over 1200 ppm, yen a trop pour les plantes donc il sert a rien 
+    peut en mettre une si c'est trop bas
+    ajouter une option pour voir les ranges de CO2 durant les dernieres heures/jour/semaines
+        avec un graph
+ 
+ajouter moyenne et valeur immediate a l'interface
