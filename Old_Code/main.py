@@ -1,4 +1,4 @@
-# from Control.hardwareAccess import HardwareAccess
+from Control.hardwareAccess import HardwareAccess
 from Control.DummyHardwareAccess import DummyHardwareAccess
 import time
 from threading import Thread
