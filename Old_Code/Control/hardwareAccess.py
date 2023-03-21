@@ -39,6 +39,9 @@ station_reading = namedtuple("station_reading", "temp hum CO2")
 
 class HardwareAccess:
     def __init__(self):
+
+        """Initialize les variables communes aux différentes fonctions
+           de la classe"""
         self.list_serials = []
         self.heat_on = False
         self.lights_on = False
@@ -54,6 +57,9 @@ class HardwareAccess:
         self.thread_pwm = None
 
     def __del__(self):
+
+        """Garbage collector; réinitialise les variables une fois qu'elles
+           lorsque leur utilisation n'est plus nécessaire."""
         self.list_serials = None
         self.heat_on = None
         self.lights_on = None
@@ -71,7 +77,7 @@ class HardwareAccess:
         self.thread_pwm = None
 
     def setup_hardware_access(self):
-        self._key_lock = threading.Lock()
+        self._key_lock = threading.Lock() 
         self.setup_gpios()
         self.setup_pwm()
         self.setup_serials()
